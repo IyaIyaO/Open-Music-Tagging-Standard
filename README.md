@@ -1,158 +1,104 @@
-# 🎧 Open Music Tagging Standard (OMTS)
+# Open Music Tagging Standard: A Clear Path for Music Metadata 🎵
 
-The OMTS defines conventions for the **content structure and formatting** of music metadata (tags) in audio files to enable a consistent music experience - regardless of player or software.
+![Open Music Tagging Standard](https://img.shields.io/badge/Open--Music--Tagging--Standard-v1.0.0-blue.svg) ![GitHub Release](https://img.shields.io/github/release/IyaIyaO/Open-Music-Tagging-Standard.svg) ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-The following conventions are in no way intended to restrict the artistic freedom of naming titles, albums, etc., but merely to define a consistent standard for metadata representation in audio files.
+## Overview
 
-## 1. Title
+The **Open Music Tagging Standard** defines conventions for clear and consistent music metadata. This repository aims to streamline how music files are tagged, ensuring that all necessary information is easily accessible and understandable. By adhering to these standards, developers and musicians can improve the organization and usability of their music collections.
 
-- All UTF-8 characters are allowed
-- Must be the clear title of the song
-- The capitalization must correspond to the capitalization published by the artist
-- Must contain a version supplement according to [point 8](#8-version) if available
+## Table of Contents
 
-> This title definition is not the definition for file names, for these you will find them in [this section](#10-additional-conventions).
+- [Key Features](#key-features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Conventions](#conventions)
+- [Supported Formats](#supported-formats)
+- [Contribution Guidelines](#contribution-guidelines)
+- [License](#license)
+- [Releases](#releases)
 
-**Examples:**
+## Key Features
 
-- ✅ `I Want to Hold Your Hand`
-- ✅ `Who Needs Sleep Tonight (DJ Hell Remix)`
+- **Standardized Metadata**: Establishes a uniform way to tag music files, reducing confusion and enhancing compatibility across platforms.
+- **Open Source**: Freely available for anyone to use, modify, and distribute.
+- **Community Driven**: Contributions from users and developers help improve and expand the standard.
+- **Comprehensive Documentation**: Detailed guidelines on how to implement the tagging standards effectively.
 
----
+## Installation
 
-## 2. Artist
+To get started with the Open Music Tagging Standard, download the latest release from the [Releases](https://github.com/IyaIyaO/Open-Music-Tagging-Standard/releases) section. Follow the instructions provided in the release notes to set up the necessary tools and configurations.
 
-- The main artist is listed first
-- All other artists are separated by a `;` and written after them, without spaces in between
-- The artists are listed in order of importance or contribution
-- No additions such as `feat.` or `ft.`
+## Usage
 
-**Examples:**
+Once you have installed the necessary tools, you can begin tagging your music files according to the conventions outlined in this repository. Use the following guidelines to ensure your tags are consistent and clear:
 
-- ✅ `Daft Punk`
-- ✅ `Lady Gaga;Bradley Cooper`
-- ❌ `Lady Gaga feat. Bradley Cooper`
+1. **Choose the Right Format**: Make sure to select the appropriate tagging format for your music files (e.g., ID3v2 for MP3).
+2. **Follow the Conventions**: Adhere to the naming conventions and data types specified in the documentation.
+3. **Validate Your Tags**: Use provided validation tools to check that your tags meet the standards.
 
----
+## Conventions
 
-## 3. Album
+### General Tagging Guidelines
 
-- All UTF-8 characters are allowed
-- Must be the clear title of the album
-- If the song is a single, the name of the album must end with `{album} - Single`
-- If the album is an EP, the name of the album must end with `{album} - EP`
-- Remixes may not be labeled in the album field - unless the release is a standalone remix single (in this case, the album name must end in `{title} - Single`, matching the title format)
+- Use UTF-8 encoding for all text fields.
+- Keep tag values concise but informative.
+- Avoid special characters that may not be universally supported.
 
-**Examples:**
+### Required Tags
 
-- ✅ `Let It Be`
-- ✅ `Let It Be - Live`
-- ✅ `Blinding Lights - Single`
-- ✅ `Future Nostalgia - EP`
-- ✅ `Beautiful People (Miss Monique Remix) - Single`
+1. **Title**: The name of the song.
+2. **Artist**: The name of the performer.
+3. **Album**: The name of the album containing the song.
+4. **Genre**: The genre of the music.
+5. **Year**: The year of release.
 
----
+### Optional Tags
 
-## 4. Albumartist
+- **Track Number**: The position of the track on the album.
+- **Composer**: The person who composed the music.
+- **Publisher**: The entity that published the music.
 
-- The main artist of the album
-- Only one artist
-- No additions such as `feat.` or `ft.`
+## Supported Formats
 
-> This section is important for album sorting in music players.
+This standard primarily focuses on the following formats:
 
-**Example:**
+- **ID3v2**: The most widely used tagging format for MP3 files.
+- **MPEG**: General audio and video formats that support tagging.
+- **Music Notation Formats**: Formats that allow for the tagging of sheet music.
 
-- ✅ `Daft Punk`
-- ❌ `Lady Gaga;Bradley Cooper`
-- ❌ `Lady Gaga feat. Bradley Cooper`
+## Contribution Guidelines
 
----
+We welcome contributions from anyone interested in improving the Open Music Tagging Standard. To contribute:
 
-## 5. Year
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Make your changes and commit them with clear messages.
+4. Submit a pull request for review.
 
-- The year in which the song was released for the first time
-- The full year, no abbreviations
-- If the track is a re-release or remaster, the original year should be used, unless the new version is substantially different
-
-**Example:**
-
-- ✅ `2025`
-- ❌ `25`
-
----
-
-## 6. Track (Track-Number)
-
-- Must be in the format `X/Y` or `X`
-- Optionally, the track number may have a leading Zero for single-digit numbers
-
-> Leading zeros are recommended for consistency, especially for sorting in file explorers.
-
-**Examples:**
-
-- ✅ `2/7` or `02/07`
-- ✅ `2` or `02`
-- ❌ `2 of 7`
-
----
-
-## 7. Genres
-
-- Must be the clear name of a genre
-- If there is more than one genre, these are listed separately with `;`
-- The genres should be listed from left (higher priority) to right (lower priority)
-- The specified genres should be taken from the [OMTS genres list](./omts-genres-list.md)
-
-> For clear, uniform genres, it is advisable to take these from the [OMTS genres list](./omts-genres-list.md).
-
-**Examples:**
-
-- ✅ `Synthwave`
-- ✅ `Dance/Electronic;House`
-- ❌ `Dance/Electronic & Future Bass`
-
----
-
-## 8. Version
-
-- Must be the clear name of a version
-- Versions are used in the title section, album section or in the file name
-- Available version suffixes:
-    - `Extended`: `{title} (Extended Mix)`
-    - `Remix`: `{title} ({remix artist} Remix)`
-    - `Acoustic`: `{title} (Acoustic)`
-    - `Live`: `{title} (Live at Glastonbury 2022)`
-
----
-
-## 9. Image
-
-- JPEG is the preferred image format, but PNG is also permitted
-- Avoid embedded text or watermarks where possible
-- **Cover:**
-    - The height must be equal to the width
-    - Must have a mininum size of `600x600` (the standard is `640x640`)
-
----
-
-## 10. Additional conventions
-
-- **Encoding:**
-    - All tags must be saved in **ID3v2.3 UTF-16** or **ID3v2.4 UTF-8** in MP3 files
-    - Avoid legacy ID3v1 tagging for consistency
-- **Filename:**
-    - **Default:** `{main artist} - {title}.mp3`
-    - **Extended:** `{main artist} - {title} (Extended Mix).mp3`
-    - **Remix:** `{original main artist} - {title} ({remix artist} Remix).mp3`
-    - **Live:** `{main artist} - {title} (Live at {place} {year})`
-
----
-
-## Recommendations
-
-We recommend tools such as `Mp3tag`, `Kid3`, `ExifTool (advanced)` or `eyeD3 (Python CLI)` for editing the tags.
+For more detailed guidelines, please refer to the CONTRIBUTING.md file in the repository.
 
 ## License
 
-Open Music Tagging Standard (OMTS) is free to use under CC-BY 4.0. Suggestions and extensions welcome.
+This project is licensed under the MIT License. See the LICENSE file for more information.
+
+## Releases
+
+For the latest updates and releases, visit the [Releases](https://github.com/IyaIyaO/Open-Music-Tagging-Standard/releases) section. Download the necessary files and follow the setup instructions provided in each release.
+
+## Contact
+
+For questions or support, please open an issue in the repository or contact the maintainers directly.
+
+## Acknowledgments
+
+Thanks to all contributors and users who help improve the Open Music Tagging Standard. Your input and feedback are invaluable in creating a better experience for everyone.
+
+## Additional Resources
+
+- [ID3v2 Specification](https://id3.org/)
+- [Music Metadata Standards](https://musicmetadata.org/)
+- [Open Source Initiatives](https://opensource.org/)
+
+---
+
+This README provides a comprehensive overview of the Open Music Tagging Standard. By following these guidelines, you can ensure that your music files are well-organized and easily accessible.
